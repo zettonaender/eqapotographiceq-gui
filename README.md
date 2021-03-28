@@ -7,6 +7,8 @@ https://i.imgur.com/fjK8muf.png
 Before use, please download python and get pip:
 https://phoenixnap.com/kb/install-pip-windows
 
+After you got pip working, Press Code->Download zip and extract.
+
 How to use:
 1. Open `rungui.bat`
 2. Select folder of EqualizerAPO installation
