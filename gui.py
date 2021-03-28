@@ -114,8 +114,10 @@ while True:
             shutil.move('temp', folder+"/config/peace.txt")
         else:
             shutil.move('temp', folder+"/config/config.txt")
-
-        subprocess.call(folder+"/Benchmark.exe -c 1 -t 24000 -l 48 -r "+str(sr)+" -o ssweep.wav")
+        try:
+			subprocess.run(folder+"/Benchmark.exe -c 1 -t 24000 -l 48 -r "+str(sr)+" -o ssweep.wav",timeout=1)
+		except subprocess.TimeoutExpired:
+			print("ok")
 
         subprocess.call("py periodogram.py")
 
