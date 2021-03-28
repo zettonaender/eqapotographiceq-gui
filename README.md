@@ -8,6 +8,8 @@ Before use, please download python 3.7 and get pip:
 https://www.python.org/downloads/release/python-379/
 https://phoenixnap.com/kb/install-pip-windows
 
+Also, apply a device selection filter in EQ APO/Peace first.
+
 After you got pip working, Press Code->Download zip and extract.
 
 How to use:
