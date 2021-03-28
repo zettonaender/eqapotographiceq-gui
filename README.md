@@ -9,11 +9,11 @@ https://www.python.org/downloads/release/python-379/
 https://phoenixnap.com/kb/install-pip-windows
 
 Also, apply a device selection filter in EQ APO/Peace first.
-If you use peace, please use EQ APO's editor instead. There's a bug with the peace program and will be fixed soon.
+
 After you got pip working, Press Code->Download zip and extract.
 
 How to use:
-1. Open `rungui.bat`
+1. Open `rungui.bat` or `runguipeace.bat` if you use Peace
 2. Select folder of EqualizerAPO installation
 3. Select the device which have the eq on
 4. Press OK
