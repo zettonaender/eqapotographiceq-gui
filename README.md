@@ -1,5 +1,5 @@
 # eqapotographiceq-gui
-Initial release(28 March 2021): Only supports 48khz EQ APO config. Please switch the sample rate first. Other sample rates support will be updated.
+Initial release(28 March 2021): Only supports 48khz for Convolution EQ. Other sample rates support will be updated.
 
 For converting Equalizer Apo (or Peace) config to CSV for AutoEQ. This makes it possible to generate Graphic Eq for Wavelet (Non-Root Android Eq) and others.
 https://i.imgur.com/fjK8muf.png
