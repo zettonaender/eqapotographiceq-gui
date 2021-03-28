@@ -9,8 +9,7 @@ https://www.python.org/downloads/release/python-379/
 https://phoenixnap.com/kb/install-pip-windows
 
 Also, apply a device selection filter in EQ APO/Peace first.
-If you use peace, rename `peace.txt` to `config.txt` in the EQ APO folder. This is a temporary solution and will be fixed soon.
-
+If you use peace, please use EQ APO's editor instead. There's a bug with the peace program and will be fixed soon.
 After you got pip working, Press Code->Download zip and extract.
 
 How to use:
