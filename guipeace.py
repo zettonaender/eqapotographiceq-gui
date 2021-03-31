@@ -13,7 +13,7 @@ def norm(a):
         if i=="\\":
             tmp=tmp+"/"
         elif idx==len(a)-4:
-        	tmp=tmp+i
+            tmp=tmp+i
         elif i=="." or i=="\n":
             tmp=tmp+""
         else:
@@ -40,7 +40,7 @@ layout = [
 ]
 
 #Create the window
-window = sg.Window("Peace to Graphic EQ GUI", layout)
+window = sg.Window("EQ APO to Graphic EQ GUI", layout)
 
 device=""
 # Create an event loop
@@ -53,60 +53,47 @@ while True:
         for i in f.readlines():
             if("Device: " in i):
                 devlist.append(i[8:len(i)-1])
+        if len(devlist)==0:
+            tmp=[]
+            f=open(folder+"/config/peace.txt","r")
+            tmp.append("Device: all\n")
+            for i in f:
+                tmp.append(i)
+            temp=open('temp','w')
+            for i in tmp:
+                temp.write(i)
+            devlist.append("all")
+            temp.close()
+            shutil.move('temp', folder+"/config/peace.txt")
         window["-devlist-"].update(devlist)
 
     elif event=="-devlist-":
         device=(values["-devlist-"])
 
     elif event=="-generate-":
-        line="Device: "+device[0]+"\n"
-        peace=False
-        f = open(folder+"/config/peace.txt", "r")
+        f=open(folder+"/config/peace.txt","r")
+        dev=device[0]
         tmp=[]
-        lastdev="Device: "+device[0]+"\n"
-        devfound=False
-        convdev=[]
-        for i in f.readlines():   
-            print(i) 
-            if i==line:
-                if(i[-12:-1]=="; Benchmark"):
+        for i in f:
+            if "Device: " in i:
+                if dev in i:
+                    if "Benchmark" not in i and not dev=="all":
+                        tmp.append(i[:-1]+"; Benchmark\n")
+                    else:
+                        tmp.append(i)
+                else:
                     tmp.append(i)
-                else:
-                    tmp.append(i[0:-1]+"; Benchmark\n")
-                devfound=True
-                lastdev=i
-            elif i[0:4]=="Conv":
-                if(lastdev in convdev):
-                    print("ignore")
-                else:
-                    convdev.append(lastdev)
-                    if(devfound):
-                        convolution=True
-                        convfile=norm(i[13:len(i)])
-                        print(convfile)
-                        sr=wavfile.read(folder+convfile)[0]
-                tmp.append(i)
-            elif i[0:3]=="Dev":
-                devfound=False
-                lastdev=i
-                tmp.append(i)
             else:
-                if(i[-12:-1]=="; Benchmark"):
-                    tmp.append(i[0:-12]+"\n")
-                else:
-                    tmp.append(i)
-        f.close()
-
+                tmp.append(i)
         temp = open('temp', 'w')
         for i in tmp:
             temp.write(i)
         temp.close()
-
         shutil.move('temp', folder+"/config/peace.txt")
         try:
             subprocess.run(folder+"/Benchmark.exe -c 1 -t 24000 -l 48 -r "+str(sr)+" -o ssweep.wav",timeout=1)
         except subprocess.TimeoutExpired:
-            print("ok")
+            print("")
 
         subprocess.call("py periodogram.py")
 
