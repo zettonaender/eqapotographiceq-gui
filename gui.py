@@ -73,6 +73,7 @@ while True:
     elif event=="-generate-":
         f=open(folder+"/config/config.txt","r")
         dev=device[0]
+        print(dev)
         tmp=[]
         for i in f:
             if "Device: " in i:
@@ -82,7 +83,10 @@ while True:
                     else:
                         tmp.append(i)
                 else:
-                    tmp.append(i)
+                    if "Benchmark" in i and not dev=="all":
+                        tmp.append(i[:-12]+"\n")
+                    else:
+                        tmp.append(i)
             else:
                 tmp.append(i)
         temp = open('temp', 'w')

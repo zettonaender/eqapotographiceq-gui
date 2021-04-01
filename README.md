@@ -1,11 +1,12 @@
 # eqapotographiceq-gui
-Bug Fixes(31 March 2021): Only supports 48khz for Convolution EQ. Other sample rates support will be updated.
+Bug Fixes(1 April 2021): Removed tensorflow requirements and using python 3.7 is not necessary anymore.
+
+Only supports 48khz for Convolution EQ. Other sample rates support will be updated.
 
 For converting Equalizer Apo (or Peace) config to CSV for AutoEQ. This makes it possible to generate Graphic Eq for Wavelet (Non-Root Android Eq) and others.
 https://i.imgur.com/fjK8muf.png
 
-Before use, please download python 3.7 and get pip:
-https://www.python.org/downloads/release/python-379/
+Before use, please download python and get pip:
 https://phoenixnap.com/kb/install-pip-windows
 
 After you got pip working, Press Code->Download zip and extract.
