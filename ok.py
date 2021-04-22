@@ -6,7 +6,7 @@ import scipy.interpolate as interpolate
 import csv
 import os
 import shutil
-showplot=True
+showplot=False
 def doeq():
 	import autoeq as eq
 	eq.batch_processing(input_dir="ssweep",output_dir='myresult/'+"ssweep",standardize_input=True,compensation='zero.csv',equalize=True,show_plot=showplot)
