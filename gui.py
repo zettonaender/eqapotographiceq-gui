@@ -4,7 +4,6 @@ import subprocess
 import shutil
 from scipy.io import wavfile
 
-sr=48000
 
 def norm(a):
     tmp=""
@@ -95,11 +94,11 @@ while True:
         temp.close()
         shutil.move('temp', folder+"/config/config.txt")
         try:
-            subprocess.run(folder+"/Benchmark.exe -c 1 -t 24000 -l 48 -r "+str(sr)+" -o ssweep.wav",timeout=1)
+            subprocess.run(folder+"/Benchmark.exe -i dirac24_44_mono.wav -o ssweep.wav",timeout=1)
         except subprocess.TimeoutExpired:
             print("")
 
-        subprocess.call("py periodogram.py")
+        subprocess.call("py ok.py")
 
         shutil.move("myresult/ssweep/ssweep GraphicEQ.txt", "GraphicEQ.txt")
 
