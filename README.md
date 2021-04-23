@@ -1,6 +1,6 @@
 Update (24 April 2021): Readded support for "Convolution EQ", select correct sample rate in the program.
 
-For converting Equalizer Apo (or Peace) config to CSV for AutoEQ. This makes it possible to generate Graphic Eq for Wavelet (Non-Root Android Eq) and others. https://i.imgur.com/fjK8muf.png
+For converting Equalizer Apo (or Peace) config to CSV for AutoEQ. This makes it possible to generate Graphic Eq for Wavelet (Non-Root Android Eq) and others. https://i.imgur.com/O6lKxec.png
 
 Before use, please download python and get pip: https://phoenixnap.com/kb/install-pip-windows
 
