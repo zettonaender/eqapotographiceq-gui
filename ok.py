@@ -20,9 +20,9 @@ arr=20*np.log10(abs(arr))
 freq=freq[:-1].copy()
 mx=np.max(arr)
 arr=arr-mx
-plt.plot(freq,arr)
-plt.xscale("log")
-plt.show()
+#plt.plot(freq,arr)
+#plt.xscale("log")
+#plt.show()
 freqarr=[]
 with open('zero.csv') as f:
 	reader=csv.reader(f,delimiter=',')

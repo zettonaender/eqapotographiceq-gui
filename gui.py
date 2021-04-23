@@ -3,7 +3,7 @@ import os
 import subprocess
 import shutil
 from scipy.io import wavfile
-
+samplerate=192000
 
 def norm(a):
     tmp=""
@@ -28,12 +28,18 @@ layout = [
     ],
     [
         sg.Listbox(
-            values=[], enable_events=True, size=(40, 20), key="-devlist-"
+            values=[], enable_events=True, size=(40, 5), key="-devlist-"
         ),
         
     ],    
     [
-            sg.Text("Please select device to generate from and press OK."),
+        sg.Listbox(
+            values=[44100,48000,192000], enable_events=True, size=(40, 3), key="-samplerate-"
+        ),
+        
+    ],   
+    [
+            sg.Text("Please select device to generate from and sample rate and press OK."),
             sg.Button("OK", key="-generate-"),
     ],
 ]
@@ -68,7 +74,8 @@ while True:
 
     elif event=="-devlist-":
         device=(values["-devlist-"])
-
+    elif event=="-samplerate-":
+        samplerate=(values["-samplerate-"])
     elif event=="-generate-":
         f=open(folder+"/config/config.txt","r")
         dev=device[0]
@@ -93,11 +100,22 @@ while True:
             temp.write(i)
         temp.close()
         shutil.move('temp', folder+"/config/config.txt")
-        try:
-            subprocess.run(folder+"/Benchmark.exe -i dirac24_44_mono.wav -o ssweep.wav",timeout=1)
-        except subprocess.TimeoutExpired:
-            print("")
-
+        print(samplerate)
+        if(samplerate[0]==48000):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_48_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
+        elif(samplerate[0]==44100):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_44_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
+        elif(samplerate[0]==192000):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_192_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
         subprocess.call("py ok.py")
 
         shutil.move("myresult/ssweep/ssweep GraphicEQ.txt", "GraphicEQ.txt")

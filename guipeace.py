@@ -3,8 +3,7 @@ import os
 import subprocess
 import shutil
 from scipy.io import wavfile
-
-sr=48000
+samplerate=192000
 
 def norm(a):
     tmp=""
@@ -13,7 +12,7 @@ def norm(a):
         if i=="\\":
             tmp=tmp+"/"
         elif idx==len(a)-4:
-            tmp=tmp+i
+        	tmp=tmp+i
         elif i=="." or i=="\n":
             tmp=tmp+""
         else:
@@ -29,12 +28,18 @@ layout = [
     ],
     [
         sg.Listbox(
-            values=[], enable_events=True, size=(40, 20), key="-devlist-"
+            values=[], enable_events=True, size=(40, 5), key="-devlist-"
         ),
         
     ],    
     [
-            sg.Text("Please select device to generate from and press OK."),
+        sg.Listbox(
+            values=[44100,48000,192000], enable_events=True, size=(40, 3), key="-samplerate-"
+        ),
+        
+    ],   
+    [
+            sg.Text("Please select device to generate from and sample rate and press OK."),
             sg.Button("OK", key="-generate-"),
     ],
 ]
@@ -48,14 +53,14 @@ while True:
     event, values = window.read()
     if event=="-folder-":
         folder=values["-folder-"]
-        f = open(folder+"/config/peace.txt", "r")
+        f = open(folder+"/config/Peace.txt", "r")
         devlist=[]
         for i in f.readlines():
             if("Device: " in i):
                 devlist.append(i[8:len(i)-1])
         if len(devlist)==0:
             tmp=[]
-            f=open(folder+"/config/peace.txt","r")
+            f=open(folder+"/config/Peace.txt","r")
             tmp.append("Device: all\n")
             for i in f:
                 tmp.append(i)
@@ -64,15 +69,17 @@ while True:
                 temp.write(i)
             devlist.append("all")
             temp.close()
-            shutil.move('temp', folder+"/config/peace.txt")
+            shutil.move('temp', folder+"/config/Peace.txt")
         window["-devlist-"].update(devlist)
 
     elif event=="-devlist-":
         device=(values["-devlist-"])
-
+    elif event=="-samplerate-":
+        samplerate=(values["-samplerate-"])
     elif event=="-generate-":
-        f=open(folder+"/config/peace.txt","r")
+        f=open(folder+"/config/Peace.txt","r")
         dev=device[0]
+        print(dev)
         tmp=[]
         for i in f:
             if "Device: " in i:
@@ -82,20 +89,34 @@ while True:
                     else:
                         tmp.append(i)
                 else:
-                    tmp.append(i)
+                    if "Benchmark" in i and not dev=="all":
+                        tmp.append(i[:-12]+"\n")
+                    else:
+                        tmp.append(i)
             else:
                 tmp.append(i)
         temp = open('temp', 'w')
         for i in tmp:
             temp.write(i)
         temp.close()
-        shutil.move('temp', folder+"/config/peace.txt")
-        try:
-            subprocess.run(folder+"/Benchmark.exe -c 1 -t 24000 -l 48 -r "+str(sr)+" -o ssweep.wav",timeout=1)
-        except subprocess.TimeoutExpired:
-            print("")
-
-        subprocess.call("py periodogram.py")
+        shutil.move('temp', folder+"/config/Peace.txt")
+        print(samplerate)
+        if(samplerate[0]==48000):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_48_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
+        elif(samplerate[0]==44100):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_44_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
+        elif(samplerate[0]==192000):
+            try:
+                subprocess.run(folder+"/Benchmark.exe -i dirac24_192_mono.wav -o ssweep.wav",timeout=1)
+            except subprocess.TimeoutExpired:
+                print("")
+        subprocess.call("py ok.py")
 
         shutil.move("myresult/ssweep/ssweep GraphicEQ.txt", "GraphicEQ.txt")
 
