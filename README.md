@@ -11,7 +11,7 @@ How to use:
 1. Open rungui.bat or runguipeace.bat if you use Peace
 2. Select folder of EqualizerAPO installation
 3. Select the device which have the eq on
-4. Select device sample rate (if you only use parametric eq, just select 192000).
+4. Select device sample rate (when in doubt just choose 48000).
 5. Press OK
 6. Wait until the program closes
 7. Take the GraphicEQ.txt file and import to wavelet
