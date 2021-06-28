@@ -17,3 +17,5 @@ How to use:
 7. Take the GraphicEQ.txt file and import to wavelet
 
 Please report any issues you encountered. Any contributions to improve the GUI will be appreciated. This GUI currently works for Parametric EQ and Convolution EQ in APO without any non-filter or preamp commands (Copy, delay, etc).
+
+Tip: If you have errors with "Failed building packages..." use python 3.7 to fix it.
