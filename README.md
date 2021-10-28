@@ -2,7 +2,7 @@ Update (24 April 2021): Readded support for "Convolution EQ", select correct sam
 
 For converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. https://i.imgur.com/O6lKxec.png
 
-Before use, please download python and get pip: https://phoenixnap.com/kb/install-pip-windows
+Before use, please download python 3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
 
 After you got pip working, Press Code->Download zip and extract.
 
@@ -16,6 +16,6 @@ How to use:
 6. Wait until the program closes
 7. Take the GraphicEQ.txt file and import to wavelet
 
-Please report any issues you encountered. Any contributions to improve the GUI will be appreciated. This GUI currently works for Parametric EQ and Convolution EQ in APO without any non-filter or preamp commands (Copy, delay, etc).
+Please report any issues you encountered. This GUI currently works for Parametric EQ and Convolution EQ in APO without any non-filter or preamp commands (Copy, delay, etc).
 
-Tip: If you have errors with "Failed building packages..." use python 3.7 to fix it.
+AutoEQ file taken from https://github.com/jaakkopasanen/AutoEq
