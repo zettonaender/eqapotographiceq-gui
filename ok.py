@@ -11,15 +11,13 @@ def doeq():
 	import autoeq as eq
 	eq.batch_processing(input_dir="ssweep",output_dir='myresult/'+"ssweep",standardize_input=True,compensation='zero.csv',equalize=True,show_plot=showplot)
 	print('===============================================')
-	print('Graphic EQ generated. Check myresult/'+"ssweep")
+	print('Graphic EQ generated. Check -> Output Folder/'+"ssweep")
 
 sr,data=wavfile.read("ssweep.wav")
 arr=fftp.rfft(data,sr)
 freq=fftp.rfftfreq(len(arr)*2,1/sr)
 arr=20*np.log10(abs(arr))
 freq=freq[:-1].copy()
-mx=np.max(arr)
-arr=arr-mx
 #plt.plot(freq,arr)
 #plt.xscale("log")
 #plt.show()
