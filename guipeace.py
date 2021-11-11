@@ -118,7 +118,7 @@ while True:
                 print("")
         subprocess.call("py ok.py")
 
-        shutil.move("myresult/ssweep/ssweep GraphicEQ.txt", "GraphicEQ.txt")
+        #shutil.move("myresult/ssweep/ssweep GraphicEQ.txt", "GraphicEQ.txt")
 
         break
     # End program if user closes window 
