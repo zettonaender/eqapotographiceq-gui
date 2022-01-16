@@ -4,9 +4,9 @@ Update (16 January 2022):
 Will probably release an executable soon.
 
 Update (11 November 2021): 
--Added output folder option
--Added safeguards for clipping
--Added fix for "samples clipped!" error in EQ APO Benchmark
+- Added output folder option
+- Added safeguards for clipping
+- Added fix for "samples clipped!" error in EQ APO Benchmark
 
 For converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. https://i.imgur.com/O6lKxec.png
 
