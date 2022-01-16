@@ -1,3 +1,8 @@
+Update (16 January 2022):
+- Fixed the most annoying bug with benchmark clipping, resulting in wobbly mess in the output
+- Fixed requirements to not need python 3.7 only
+Will probably release an executable soon.
+
 Update (11 November 2021): 
 -Added output folder option
 -Added a safeguards for clipping
@@ -5,7 +10,7 @@ Update (11 November 2021):
 
 For converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. https://i.imgur.com/O6lKxec.png
 
-Before use, please download python 3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
+Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
 
 After you got pip working, Press Code->Download zip and extract.
 
