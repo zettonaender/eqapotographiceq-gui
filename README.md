@@ -5,13 +5,10 @@ For converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. https:
 
 Executable download at https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build
 
-====================================================if you don't use the exe====================================================
-Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
-
-After you got pip working, Press Code->Download zip and extract.
-
-Open rungui.bat or runguipeace.bat if you use Peace
-========================================================================================================
+If you don't use the exe:
+-Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
+-After you got pip working, Press Code->Download zip and extract.
+-Open rungui.bat or runguipeace.bat if you use Peace
 
 How to use:
 1. Select folder of EqualizerAPO installation
