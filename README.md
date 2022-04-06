@@ -1,16 +1,14 @@
-Update (6 April 2022):
+
+# A tool for converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. 
+![Image](https://i.imgur.com/O6lKxec.png)
+
+## Update (6 April 2022):
 - Released EXE file (need testing probably)
 
-For converting Equalizer Apo (or Peace) config to Graphic EQ for Wavelet. https://i.imgur.com/O6lKxec.png
+# Executable download at
+https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build
 
-Executable download at https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build
-
-If you don't use the exe:
--Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
--After you got pip working, Press Code->Download zip and extract.
--Open rungui.bat or runguipeace.bat if you use Peace
-
-How to use:
+# How to use:
 1. Select folder of EqualizerAPO installation
 2. Select the device which have the eq on
 3. Select device sample rate (when in doubt just choose 48000).
@@ -22,3 +20,9 @@ How to use:
 Please report any issues you encountered. This GUI currently works for Parametric EQ and Convolution EQ in APO without any non-filter or preamp commands (Copy, delay, etc).
 
 AutoEQ code taken from https://github.com/jaakkopasanen/AutoEq
+
+
+## If you don't use the exe:
+1. Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
+2. After you got pip working, Press Code->Download zip and extract.
+3. Open rungui.bat or runguipeace.bat if you use Peace
