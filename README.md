@@ -21,6 +21,11 @@ Please report any issues you encountered. This GUI currently works for Parametri
 
 AutoEQ code taken from https://github.com/jaakkopasanen/AutoEq
 
+## How to report a bug
+1. Shift+right click inside the folder with 'gui.exe' and open terminal/cmd
+2. Type 'gui' and enter
+3. Any error will show up and you can post it via the "issue" tab on GitHub.
+
 
 ## If you don't use the exe:
 1. Before use, please download Python version>=3.7 and get pip: https://phoenixnap.com/kb/install-pip-windows
