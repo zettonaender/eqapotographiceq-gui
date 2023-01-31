@@ -15,13 +15,10 @@ def doeq():
 
 def startyourengine():
 	sr,data=wavfile.read("ssweep.wav")
-	arr=fftp.rfft(data,sr)
-	freq=fftp.rfftfreq(len(arr)*2,1/sr)
+	arr=fftp.rfft(data)
+	freq=fftp.rfftfreq(len(data),1/sr)
 	arr=20*np.log10(abs(arr))
-	freq=freq[:-1].copy()
-	#plt.plot(freq,arr)
-	#plt.xscale("log")
-	#plt.show()
+
 	freqarr=[]
 	with open('zero.csv') as f:
 		reader=csv.reader(f,delimiter=',')
@@ -31,13 +28,13 @@ def startyourengine():
 	arrnew=x(freqarr)
 	arrnew=-1*arrnew
 	with open('ssweep.csv', mode='w', newline='') as output:
-	    writer=csv.writer(output,delimiter=',')
-	    writer.writerow(['frequency','raw'])
-	    for i in range(0,len(freqarr)):
-	        writer.writerow([str(freqarr[i]),str(round(arrnew[i],2))])
+		writer=csv.writer(output,delimiter=',')
+		writer.writerow(['frequency','raw'])
+		for i in range(0,len(freqarr)):
+			writer.writerow([str(freqarr[i]),str(round(arrnew[i],2))])
 	try:
-	    os.mkdir('ssweep/')
+		os.mkdir('ssweep/')
 	except OSError:
-	    print ('')
+		print ('')
 	shutil.move('ssweep.csv','ssweep/ssweep.csv')
 	doeq()

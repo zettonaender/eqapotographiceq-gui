@@ -251,7 +251,7 @@ class FrequencyResponse:
         f = np.sort(np.unique(f.astype('int')))
         fr.interpolate(f=f)
         if normalize:
-            fr.raw -= np.max(fr.raw) + 0.5
+            fr.raw -= np.max(fr.raw)
             if fr.raw[0] > 0.0:
                 # Prevent bass boost below lowest frequency
                 fr.raw[0] = 0.0
