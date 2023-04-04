@@ -16,7 +16,7 @@ https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build
 
 1. Copy the **Benchmark.exe** from this repository and paste it to Equalizer APO folder.
 
-2. Download the [release](https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build)
+2. Download the [release](https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build2)
 
 3. Select folder of EqualizerAPO installation
 
