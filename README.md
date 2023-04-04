@@ -7,7 +7,7 @@
 
 # Executable download at
 
-https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build
+https://github.com/zettonaender/eqapotographiceq-gui/releases/tag/build2
 
   ### Update (31 January 2023):
 - Updated to fix wiggles. Be sure to use the modified benchmark exe.
