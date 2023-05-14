@@ -1,12 +1,7 @@
-from re import sub
-from time import sleep
 import PySimpleGUI as sg
 import os
 import subprocess
 import shutil
-from scipy.io import wavfile
-import scipy.fft as fftp
-import numpy as np
 from ok import startyourengine
 
 def norm(a):
@@ -25,18 +20,17 @@ def norm(a):
     return tmp
 
 def bench(sampler):
+    shutil.copy('Benchmark.exe', f'{folder}/Benchmark.exe')
     if(sampler==48000):
-        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac24_48_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
+        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac32f_48_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
         out=proc.stdout
     elif(sampler==44100):
-        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac24_44_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
+        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac32f_44_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
         out=proc.stdout
     elif(sampler==192000):
-        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac24_192_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
+        proc=subprocess.run('"'+folder+'/Benchmark.exe" -i dirac32f_192_mono.wav -o ssweep.wav', stdout=subprocess.PIPE, input='o', encoding='ascii')
         out=proc.stdout
     print(out)
-    if 'clipped' in out:
-        bench(sampler)
 
 layout = [
     [
@@ -111,10 +105,8 @@ while True:
                 if dev in i:
                     if 'Benchmark' not in i and not dev=='all':
                         tmp.append(i[:-1]+'; Benchmark\n')
-                        tmp.append('Preamp: -15 dB\n')
                     else:
                         tmp.append(i)
-                        tmp.append('Preamp: -15 dB\n')
                 else:
                     if 'Benchmark' in i and not dev=='all':
                         tmp.append(i[:-12]+'\n')
